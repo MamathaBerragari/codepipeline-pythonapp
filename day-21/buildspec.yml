@@ -1,0 +1,25 @@
+version: 0.2
+
+env:
+  parameter-store:
+    DOCKER_USERNAME: "/docker/username"
+    DOCKER_PASSWORD: "/docker/password"
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to DockerHub
+      - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+
+  build:
+    commands:
+      - echo Building Docker image
+      - docker build -t flask-app .
+
+  post_build:
+    commands:
+      - echo Tagging image
+      - docker tag flask-app $DOCKER_USERNAME/flask-app:latest
+      - echo Pushing image
+      - docker push $DOCKER_USERNAME/flask-app:latest
+      - echo Build completed successfully
