@@ -14,13 +14,11 @@ phases:
 
   build:
     commands:
-      - cd day-21
       - echo Building Docker image
       - docker build -t flask-app .
 
   post_build:
     commands:
-      - cd day-21
       - echo Tagging image
       - docker tag flask-app $DOCKER_USERNAME/flask-app:latest
       - echo Pushing image
