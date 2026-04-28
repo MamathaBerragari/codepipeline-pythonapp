@@ -24,9 +24,5 @@ phases:
   post_build:
     commands:
       - echo "Build completed successfully!"
-artifacts:
-  files:
-    - appspec.yml
-    - start_container.sh
-    - stop_container.sh
+
 
