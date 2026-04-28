@@ -1,5 +1,5 @@
 #!/bin/bash
 set -e
 
-# Stop the running container (if any)
-echo "Hi"
+docker stop flask-app || true
+docker rm flask-app || true
