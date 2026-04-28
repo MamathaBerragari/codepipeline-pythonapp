@@ -26,8 +26,8 @@ phases:
       - echo "Build completed successfully!"
 
 artifacts:
-  base-directory: .
+  base-directory: day-14/simple-python-app
   files:
     - appspec.yml
-    - simple-python-app/start_container.sh
-    - simple-python-app/stop_container.sh
+    - start_container.sh
+    - stop_container.sh
